@@ -1,0 +1,32 @@
+body {
+  background-color: #f8f8f8;
+  margin: 0;
+}
+
+header, footer {
+  background-color: #02194F;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+ul {
+  color: #fff;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  padding-right: 2em;
+}
+
+.logo {
+  max-height: 100px;
+  max-width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
