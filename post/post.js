@@ -6,6 +6,40 @@ if (!postId) {
   console.error(`post id not found in url`)
 }// Get post ID from URL
 
+function isLoggedIn() {
+  const token = localStorage.getItem('accessToken');
+  console.log('Access Token', token)
+  return !!token;
+}
+
+function handleLogout() {
+  localStorage.removeItem('accessToken');
+  console.log('Logged out.');
+  window.location.href = '/account/login.html';
+}
+
+function updateUI() {
+  const loginBtn = document.getElementById('login-btn');
+  const registerBtn = document.getElementById('register-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  if (isLoggedIn()) {
+    console.log('User is logged in. Showing logout button.');
+    loginBtn.style.display = 'none';
+    registerBtn.style.display = 'none';
+    logoutBtn.style.display = 'block';
+  } else {
+    console.log('User is not logged in. Showing login and register buttons')
+    loginBtn.style.display = 'block';
+    registerBtn.style.display = 'block';
+    logoutBtn.style.display = 'none';
+  }
+}
+
+document.getElementById('logout-link').addEventListener('click', handleLogout);
+
+updateUI();
+
 async function fetchPostData() {
   const encodedPostId = encodeURIComponent(postId);
   const url = `${API_BLOG_URL}/${encodedPostId}`;

@@ -1,43 +1,39 @@
 const form = document.getElementById('login-form');
 const errorMessage = document.getElementById('error-message');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const jwtToken = localStorage.getItem('jwtToken');
 
   const loginData = {
     email: email,
     password: password
   };
+  
+  try {
+    const response = await fetch('https://v2.api.noroff.dev/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData),
+    });
 
-  fetch('https://v2.api.noroff.dev/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${jwtToken}`
-    },
-    body: JSON.stringify(loginData)
-  })
-  .then(response => {console.log('Response status:', response.status);
-  return response.json();
-  })
-  .then(data => {
-    console.log ('Response data:', data);
+    const data = await response.json();
 
-    if (data.data && data.data.email) {
+    if (response.ok) {
+      localStorage.setItem('accessToken', data.data.accessToken);
       console.log('Logged in!');
       window.location.href = '../index.html';
     } else {
       console.log('Login failed:', data.message || 'Unknown Error');
       errorMessage.textContent = data.message || 'Login failed. Please try again.';
     }
-  })
-  .catch(error => {
+  } catch(error) {
     console.error('Error logging in:', error);
     errorMessage.textContent = 'Error logging in. Contact IT-department.';
-  });
+  }
 });
 
