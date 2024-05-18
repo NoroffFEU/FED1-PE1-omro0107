@@ -21,13 +21,18 @@ form.addEventListener('submit', (event) => {
     },
     body: JSON.stringify(loginData)
   })
-  .then(response => response.json())
+  .then(response => {console.log('Response status:', response.status);
+  return response.json();
+  })
   .then(data => {
-    if (data.success) {
+    console.log ('Response data:', data);
+
+    if (data.data && data.data.email) {
       console.log('Logged in!');
-      window.location.href = './index.html';
+      window.location.href = '../index.html';
     } else {
-      errorMessage.textContent = data.message;
+      console.log('Login failed:', data.message || 'Unknown Error');
+      errorMessage.textContent = data.message || 'Login failed. Please try again.';
     }
   })
   .catch(error => {

@@ -1,0 +1,49 @@
+import { API_BLOG_URL } from "../utils/constants.mjs";
+
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get('id'); 
+if (!postId) {
+  console.error(`post id not found in url`)
+}// Get post ID from URL
+
+async function fetchPostData() {
+  const encodedPostId = encodeURIComponent(postId);
+  const url = `${API_BLOG_URL}/${encodedPostId}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Error fetching post data: ${response.status}`);
+  }
+  const data = await response.json();
+  return data.data;
+}
+
+async function displayPost(postData) {
+  const postTitle = document.getElementById('post-title');
+  const authorName = document.getElementById('author-name');
+  const publishDate = document.getElementById('publish-date');
+  const postImage = document.getElementById('post-image');
+  const postContent = document.getElementById('post-content');
+
+  postTitle.textContent = postData.title;
+  authorName.textContent = postData.author.name;
+  publishDate.textContent = new Date(postData.created).toLocaleDateString();
+  if (postData.media && postData.media.url) {
+    postImage.src = postData.media.url;
+    postImage.alt = postData.media.alt;
+  }
+  postContent.innerHTML = postData.body;
+}
+
+const shareButton = document.getElementById('share-button');
+
+shareButton.addEventListener('click', () => {
+  const shareableUrl = `${window.location.origin}${window.location.pathname}?id=${postId}`;
+
+  navigator.clipboard.writeText(shareableUrl);
+
+  alert(`Post URL is copied to your clipboard!`);
+});
+
+fetchPostData(postId)
+  .then(postData => displayPost(postData))
+  .catch(error => console.error('Error fetching post data:', error));
