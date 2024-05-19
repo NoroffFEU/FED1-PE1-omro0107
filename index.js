@@ -44,13 +44,11 @@ function generatePostHtml(post) {
   const postContainer = document.createElement('div');
   postContainer.classList.add('post-container');
 
+  const contentDiv = document.createElement('div')
+  contentDiv.classList.add('content-div');
+
   const heading = document.createElement('h1');
   heading.textContent = post.title;
-
-  const postImage = document.createElement('img');
-  postImage.src = post.media.url;
-  postImage.alt = post.media.alt;
-  postImage.classList.add('post-image');
 
   const viewPostButton = document.createElement('button');
   viewPostButton.textContent = 'View Post';
@@ -59,8 +57,18 @@ function generatePostHtml(post) {
     window.location.href = `/post/index.html?id=${post.id}`; 
   });
 
-  postContainer.append(heading, postImage, viewPostButton);
-  postWrapper.appendChild(postContainer);
+  const postImage = document.createElement('img');
+  postImage.src = post.media.url;
+  postImage.alt = post.media.alt;
+  postImage.classList.add('post-image');
+
+  contentDiv.appendChild(heading);
+  contentDiv.appendChild(viewPostButton);
+
+  postContainer.appendChild(contentDiv);
+  postContainer.appendChild(postImage);
+
+  postWrapper.appendChild(postContainer)
 
   return postWrapper;
 }
@@ -98,7 +106,9 @@ function displayPostThumbnails(posts) {
   const postThumbnailsContainer = document.getElementById('post-thumbnails');
   postThumbnailsContainer.innerHTML = '';
 
-  posts.forEach(post => {
+  const latestPosts = posts.slice(-12);
+
+  latestPosts.forEach(post => {
     const postThumbnail = document.createElement('div');
     postThumbnail.classList.add('blogpost');
 

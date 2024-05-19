@@ -22,21 +22,27 @@ function updateUI() {
   const loginBtn = document.getElementById('login-btn');
   const registerBtn = document.getElementById('register-btn');
   const logoutBtn = document.getElementById('logout-btn');
+  const editPostBtn = document.getElementById('edit-post-btn');
 
   if (isLoggedIn()) {
     console.log('User is logged in. Showing logout button.');
     loginBtn.style.display = 'none';
     registerBtn.style.display = 'none';
     logoutBtn.style.display = 'block';
+    editPostBtn.style.display = 'block';
   } else {
     console.log('User is not logged in. Showing login and register buttons')
     loginBtn.style.display = 'block';
     registerBtn.style.display = 'block';
     logoutBtn.style.display = 'none';
+    editPostBtn.style.display = 'none';
   }
 }
 
 document.getElementById('logout-link').addEventListener('click', handleLogout);
+document.getElementById('edit-post-btn').addEventListener('click', () => {
+  window.location.href = `/post/edit.html?id=${postId}`;
+});
 
 updateUI();
 
