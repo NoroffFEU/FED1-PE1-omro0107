@@ -64,6 +64,7 @@ a:hover {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 400px;
+  margin: 5vw auto;
 }
 
 h1 {
@@ -104,8 +105,9 @@ button:hover {
   background-color: #1a825c;
 }
 
-#login-from {
+#login-form, #register-form {
   font-family: 'open sans', Verdana, Tahoma, sans-serif;
+  margin: 2vw auto;
 }
 
 #error-message {

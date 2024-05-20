@@ -24,22 +24,25 @@
             </nav>
         </header>
         <main>
-            <form id="register-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required autofill="name" pattern="^[\w]+$" maxlength="20" title="User name must only contain lower case and upper case letters, numbers and underscore. Example: Hey_Jude68">
-              
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required autofill="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Email must be in the format: name@stud.noroff.no or name@noroff.no">
+            <div class="container">
+                <h1>Register new account</h1>
+                <form id="register-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required autofill="name" pattern="^[\w]+$" maxlength="20" title="User name must only contain lower case and upper case letters, numbers and underscore. Example: Hey_Jude68">
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required autofill="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Email must be in the format: name@stud.noroff.no or name@noroff.no">
 
-              
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required minlength="8">
-              
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-              
-                <button type="submit">Register</button>
-            </form>
+                
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required minlength="8">
+                
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                
+                    <button type="submit">Register</button>
+                </form>
+            </div>
             <script type="module" src="../account/register.mjs"></script>
         </main>
         <footer> 
