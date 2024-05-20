@@ -1,5 +1,5 @@
-import { API_BLOG_URL } from "/utils/constants.mjs";
-import { doFetch } from "/utils/dofetch.mjs";
+import { API_BLOG_URL } from "./utils/constants.mjs";
+import { doFetch } from "./utils/dofetch.mjs";
 
 function isLoggedIn() {
   const token = localStorage.getItem('accessToken');
