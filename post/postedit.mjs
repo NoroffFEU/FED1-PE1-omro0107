@@ -15,7 +15,7 @@ function isLoggedIn() {
 function handleLogout() {
   localStorage.removeItem('accessToken');
   console.log('Logged out.');
-  window.location.href = '/account/login.html';
+  window.location.href = '../account/login.html';
 }
 
 function updateUI() {
@@ -54,7 +54,7 @@ document.getElementById('delete-post-btn').addEventListener('click', async () =>
       throw new Error(`Error deleting post: ${response.status}`);
     }
 
-    window.location.href = '/index.html';
+    window.location.href = '../index.html';
   } catch (error) {
     console.error('Error deleting post:', error);
   }
@@ -93,7 +93,7 @@ document.getElementById('edit-post-form').addEventListener('submit', async (even
       throw new Error(`Error updating post: ${response.status}`);
     }
 
-    window.location.href = '/index.html';
+    window.location.href = '../index.html';
   } catch (error) {
     console.error('Error updating post:', error);
   }

@@ -15,7 +15,7 @@ function isLoggedIn() {
 function handleLogout() {
   localStorage.removeItem('accessToken');
   console.log('Logged out.');
-  window.location.href = '/account/login.html';
+  window.location.href = '../account/login.html';
 }
 
 function updateUI() {
@@ -41,7 +41,7 @@ function updateUI() {
 
 document.getElementById('logout-link').addEventListener('click', handleLogout);
 document.getElementById('edit-post-btn').addEventListener('click', () => {
-  window.location.href = `/post/edit.html?id=${postId}`;
+  window.location.href = `../post/edit.html?id=${postId}`;
 });
 
 updateUI();

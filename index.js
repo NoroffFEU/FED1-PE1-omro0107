@@ -1,5 +1,5 @@
-import { API_BLOG_URL } from "/utils/constants.mjs";
-import { doFetch } from "/utils/dofetch.mjs";
+import { API_BLOG_URL } from "../utils/constants.mjs";
+import { doFetch } from "../utils/dofetch.mjs";
 
 function isLoggedIn() {
   const token = localStorage.getItem('accessToken');
@@ -125,7 +125,7 @@ function displayPostThumbnails(posts) {
     postThumbnail.appendChild(postTitle);
 
     postThumbnail.addEventListener('click', () => {
-      window.location.href = `/post/index.html?id=${post.id}`; 
+      window.location.href = `post/index.html?id=${post.id}`; 
     });
 
     postThumbnailsContainer.appendChild(postThumbnail);
