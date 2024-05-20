@@ -18,7 +18,7 @@ main {
 
 nav {
   font-size: 1em;
-  font-family: 'poppins', 'open sans', 'veranda', sans-serif;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
   font-weight: bold;
 }
 
@@ -71,7 +71,7 @@ h1 {
   border: none;
   border-radius: 15px;
   font-size: 1em;
-  font-family: 'poppins', 'open sans', 'veranda', sans-serif;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -133,7 +133,7 @@ h1 {
 
 .h2 {
   font-size: 24px;
-  font-family: 'montserrat', Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'montserrat', 'open sans', sans-serif;
 }
 
 .carousel-container {

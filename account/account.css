@@ -69,6 +69,8 @@ a:hover {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2em;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
 }
 
 label {
@@ -94,10 +96,15 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-family: 'montserrat', 'open sans', Verdana, Tahoma, sans-serif;
 }
 
 button:hover {
   background-color: #1a825c;
+}
+
+#login-from {
+  font-family: 'open sans', Verdana, Tahoma, sans-serif;
 }
 
 #error-message {

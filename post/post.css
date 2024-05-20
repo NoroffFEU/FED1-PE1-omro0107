@@ -1,7 +1,11 @@
 body {
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
 }
 
 header, footer {
@@ -25,6 +29,7 @@ main {
   padding: 20px;
 }
 
+
 a:link, 
 a:visited, 
 a:active {
@@ -38,7 +43,7 @@ a:hover {
 
 nav {
   font-size: 1em;
-  font-family: 'poppins', 'open sans', 'veranda', sans-serif;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
   font-weight: bold;
 }
 
@@ -77,12 +82,20 @@ li {
 
 #post-content {
   line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 #edit-post-form {
   display: flex;
   justify-content: center;
   padding: 5vw 0 5vw;
+  font-size: 1em;
+  font-family: 'open sans', Verdana, Tahoma, sans-serif;
 }
 
 button {
@@ -97,7 +110,7 @@ background-color: #f26100;
 border: none;
 border-radius: 15px;
 font-size: 1em;
-font-family: 'poppins', 'open sans', 'veranda', sans-serif;
+font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
 font-weight: bold;
 color: #fff;
 text-align: center;
