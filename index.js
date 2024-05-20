@@ -1,5 +1,5 @@
-import { API_BLOG_URL } from "../utils/constants.mjs";
-import { doFetch } from "../utils/dofetch.mjs";
+import { API_BLOG_URL } from "utils/constants.mjs";
+import { doFetch } from "utils/dofetch.mjs";
 
 function isLoggedIn() {
   const token = localStorage.getItem('accessToken');
@@ -10,7 +10,7 @@ function isLoggedIn() {
 function handleLogout() {
   localStorage.removeItem('accessToken');
   console.log('Logged out.');
-  window.location.href = '/account/login.html';
+  window.location.href = 'account/login.html';
 }
 
 function updateUI() {
@@ -54,7 +54,7 @@ function generatePostHtml(post) {
   viewPostButton.textContent = 'View Post';
   viewPostButton.classList.add('view-post-btn');
   viewPostButton.addEventListener('click', () => {
-    window.location.href = `/post/index.html?id=${post.id}`; 
+    window.location.href = `post/index.html?id=${post.id}`; 
   });
 
   const postImage = document.createElement('img');
