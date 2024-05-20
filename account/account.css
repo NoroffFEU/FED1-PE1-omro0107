@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-header, footer {
+header {
   background-color: #02194F;
   height: 100px;
   display: flex;
@@ -97,6 +97,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-family: 'montserrat', 'open sans', Verdana, Tahoma, sans-serif;
+  font-weight: bold;
 }
 
 button:hover {
@@ -111,4 +112,52 @@ button:hover {
   color: red;
   font-weight: bold;
   text-align: center;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vw;
+  background-color: #02194F;
+  position: relative;
+}
+
+h3,
+.social-media,
+.contact-info {
+    margin: 20px;
+    margin-top: 30px;
+    font-family: 'opensans', sans-serif;
+    color: #fff;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.contact-info li {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.social-media li, a {
+  display: flex;
+  align-items: center;
+}
+
+.social-media i.fa-brands {
+  font-size: 1.5rem;
+}
+
+.social-media p {
+  margin: 10px;
+}
+
+.social-media, 
+.contact-info {
+  display: flex;
+  flex-direction: column;
 }
