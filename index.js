@@ -77,6 +77,7 @@ let currentIndex = 0;
 
 function showPost(index) {
   const postsDisplay = document.getElementById('posts-display');
+  const postWrapper = postsDisplay.querySelector('.post-wrapper')
   const postWidth = postsDisplay.clientWidth;
   postsDisplay.style.transform = `translateX(-${index * postWidth}px)`;
 }
