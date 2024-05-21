@@ -132,6 +132,20 @@ function displayPostThumbnails(posts) {
   });
 }
 
+function sortPosts(posts, criteria) {
+  if (criteria === 'date') {
+    return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  } else if (criteria === 'title') {
+    return posts.sort((a, b) => a.title.localeCompare(b.title));
+  }
+  return posts;
+}
+
+document.getElementById('sort-posts').addEventListener('change', (event) => {
+  const sortedPosts = sortPosts([...posts], event.target.value);
+  displayPostThumbnails(sortedPosts);
+});
+
 async function main() {
   try {
     const responseData = await doFetch(API_BLOG_URL);
