@@ -118,10 +118,25 @@ function displayPostThumbnails(posts) {
     thumbnailImage.alt = post.media.alt;
     thumbnailImage.classList.add('blogpostimg');
 
+    const postDate = document.createElement('div');
+    postDate.classList.add('post-date');
+    const postDateObj = new Date(post.updated);
+    const options = { month: 'short', year: '2-digit' };
+    postDate.textContent = postDateObj.toLocaleDateString('en-US', options);
+
+    const icon = document.createElement('i');
+    icon.classList.add('fa-solid', 'fa-ellipsis');
+
+    const dateAndIconContainer = document.createElement('div');
+    dateAndIconContainer.classList.add('date-icon-container');
+    dateAndIconContainer.appendChild(postDate);
+    dateAndIconContainer.appendChild(icon);
+
     const postTitle = document.createElement('h2');
     postTitle.textContent = post.title;
 
     postThumbnail.appendChild(thumbnailImage);
+    postThumbnail.appendChild(dateAndIconContainer);
     postThumbnail.appendChild(postTitle);
 
     postThumbnail.addEventListener('click', () => {

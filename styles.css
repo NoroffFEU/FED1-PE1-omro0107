@@ -134,6 +134,7 @@ h1 {
 h2 {
   font-size: 2em;
   font-family: 'montserrat', 'open sans', sans-serif;
+  font-weight: normal;
 }
 
 .carousel-container {
@@ -188,6 +189,23 @@ section ul {
   flex-direction: column;
   color: #2c2c2c;
   display: list-item;
+}
+
+.selection {
+  font-family: 'montserrat';
+  margin: 2vw;
+}
+
+.date-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.post-date {
+  font-family: 'montserrat', 'open sans';
 }
 
 /* FOOTER */
