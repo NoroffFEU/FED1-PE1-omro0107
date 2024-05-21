@@ -116,6 +116,17 @@ button:hover {
   text-align: center;
 }
 
+.createaccount {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+}
+
+.createaccount a {
+  color: rgb(9, 158, 9);
+  margin-left: 10px;
+}
+
 /* FOOTER */
 footer {
   display: flex;
