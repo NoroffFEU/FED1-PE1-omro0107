@@ -51,12 +51,18 @@ document.getElementById('delete-post-btn').addEventListener('click', async () =>
     });
 
     if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('Post not found. It may have already been deleted');
+      } else {
       throw new Error(`Error deleting post: ${response.status}`);
+      }
     }
 
+    alert('Post deleted successfully.')
     window.location.href = '../index.html';
   } catch (error) {
     console.error('Error deleting post:', error);
+    alert (error.message);
   }
 });
 
@@ -93,8 +99,10 @@ document.getElementById('edit-post-form').addEventListener('submit', async (even
       throw new Error(`Error updating post: ${response.status}`);
     }
 
+    alert('Post updated successfully.')
     window.location.href = '../index.html';
   } catch (error) {
     console.error('Error updating post:', error);
+    alert ('Error updating post:' + error.message);
   }
 });
