@@ -122,7 +122,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  height: 10vw;
+  height: 200px;
   background-color: #02194F;
   position: relative;
 }
@@ -130,8 +130,6 @@ footer {
 h3,
 .social-media,
 .contact-info {
-    margin: 20px;
-    margin-top: 30px;
     font-family: 'opensans', sans-serif;
     color: #fff;
 }
@@ -158,8 +156,7 @@ h3 {
   margin: 10px;
 }
 
-.social-media, 
-.contact-info {
+.social-media ul, .contact-info {
   display: flex;
   flex-direction: column;
 }
