@@ -208,6 +208,10 @@ section ul {
   font-family: 'montserrat', 'open sans';
 }
 
+.fa-spinner {
+  font-size: 3vw;
+}
+
 /* FOOTER */
 footer {
   display: flex;

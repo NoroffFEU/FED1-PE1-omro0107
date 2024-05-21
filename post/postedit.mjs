@@ -56,10 +56,10 @@ document.getElementById('delete-post-btn').addEventListener('click', async () =>
       } else {
       throw new Error(`Error deleting post: ${response.status}`);
       }
+    } else {
+      alert('Post deleted successfully.')
+      window.location.href = '../index.html';
     }
-
-    alert('Post deleted successfully.')
-    window.location.href = '../index.html';
   } catch (error) {
     console.error('Error deleting post:', error);
     alert (error.message);
@@ -97,10 +97,10 @@ document.getElementById('edit-post-form').addEventListener('submit', async (even
 
     if (!response.ok) {
       throw new Error(`Error updating post: ${response.status}`);
+    } else {
+      alert('Post updated successfully.')
+      window.location.href = '../index.html';
     }
-
-    alert('Post updated successfully.')
-    window.location.href = '../index.html';
   } catch (error) {
     console.error('Error updating post:', error);
     alert ('Error updating post:' + error.message);

@@ -121,7 +121,7 @@ function displayPostThumbnails(posts) {
     const postDate = document.createElement('div');
     postDate.classList.add('post-date');
     const postDateObj = new Date(post.updated);
-    const options = { month: 'short', year: '2-digit' };
+    const options = { month: 'short', day: '2-digit' };
     postDate.textContent = postDateObj.toLocaleDateString('en-US', options);
 
     const icon = document.createElement('i');
@@ -163,13 +163,18 @@ document.getElementById('sort-posts').addEventListener('change', (event) => {
 
 async function main() {
   try {
+    document.getElementById('loader').style.display = 'block';
+
     const responseData = await doFetch(API_BLOG_URL);
     if (!responseData || !responseData.data) {
       throw new Error('Failed to fetch post data from the API');
     }
+
     posts.push(...responseData.data);
     displayPosts(posts);
     displayPostThumbnails(responseData.data);
+    
+    document.getElementById('loader').style.display = 'none';
   } catch (error) {
     console.error('An error occurred:', error.message);
     alert('Oops! Something went wrong while fetching posts. Please try again later.');
