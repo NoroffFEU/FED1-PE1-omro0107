@@ -139,6 +139,10 @@ textarea {
   margin-bottom: 15px;
 }
 
+.fa-spinner {
+  font-size: 3vw;
+}
+
 /* FOOTER */
 footer {
   display: flex;

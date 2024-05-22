@@ -29,12 +29,14 @@ function updateUI() {
     loginBtn.style.display = 'none';
     registerBtn.style.display = 'none';
     logoutBtn.style.display = 'block';
+    createNewPostBtn.style.display = 'block';
     editPostBtn.style.display = 'block';
   } else {
     console.log('User is not logged in. Showing login and register buttons')
     loginBtn.style.display = 'block';
     registerBtn.style.display = 'block';
     logoutBtn.style.display = 'none';
+    createNewPostBtn.style.display = 'none'; 
     editPostBtn.style.display = 'none';
   }
 }
@@ -46,15 +48,23 @@ document.getElementById('edit-post-btn').addEventListener('click', () => {
 
 updateUI();
 
+const loader = document.getElementById('loader')
+
 async function fetchPostData() {
-  const encodedPostId = encodeURIComponent(postId);
-  const url = `${API_BLOG_URL}/${encodedPostId}`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Error fetching post data: ${response.status}`);
+  try {
+      loader.style.display = 'block';
+      
+    const encodedPostId = encodeURIComponent(postId);
+    const url = `${API_BLOG_URL}/${encodedPostId}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error fetching post data: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.data;
+  } finally {
+    loader.style.display = 'none';
   }
-  const data = await response.json();
-  return data.data;
 }
 
 async function displayPost() {
