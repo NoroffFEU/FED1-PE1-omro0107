@@ -1,6 +1,6 @@
 const form = document.getElementById('register-form');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -39,26 +39,26 @@ form.addEventListener('submit', (e) => {
     password
   };
   
-  fetch('https://v2.api.noroff.dev/auth/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(user)
-  })
-  .then(response => {
+  try{
+    const response = await fetch('https://v2.api.noroff.dev/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user)
+      });
+
     if (response.ok) {
-      return response.json();
+      const data = await response.json();
+      alert('New profile successfully created');
+      console.log(data);
     } else {
       alert('Profile already exists');
     }
-  })
-  .then(data => {
-    alert('New profile successfully created');
-    console.log(data);
-  })
-  .catch(error => console.error(error));
-
+  } catch (error) {
+     console.error(error);
+  }
+  
   console.log(`New account created: ${name} ${email} ${password}`);
 });
 

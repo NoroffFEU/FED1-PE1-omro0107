@@ -57,7 +57,9 @@ async function fetchPostData() {
   return data.data;
 }
 
-async function displayPost(postData) {
+async function displayPost() {
+  const postData = await fetchPostData();
+
   const postTitle = document.getElementById('post-title');
   const authorName = document.getElementById('author-name');
   const publishDate = document.getElementById('publish-date');
@@ -84,6 +86,4 @@ shareButton.addEventListener('click', () => {
   alert(`Post URL is copied to your clipboard!`);
 });
 
-fetchPostData(postId)
-  .then(postData => displayPost(postData))
-  .catch(error => console.error('Error fetching post data:', error));
+displayPost();
