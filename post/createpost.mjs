@@ -16,6 +16,7 @@ function updateUI() {
   const loginBtn = document.getElementById('login-btn');
   const registerBtn = document.getElementById('register-btn');
   const logoutBtn = document.getElementById('logout-btn');
+  const createNewPostBtn = document.getElementById('create-new-post-btn');
 
   if (isLoggedIn()) {
     console.log('User is logged in. Showing logout button.');
