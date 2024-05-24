@@ -3,6 +3,8 @@ body {
   margin: 0;
 }
 
+/* HEADER */
+
 header {
   background-color: #02194F;
   height: 100px;
@@ -10,16 +12,6 @@ header {
   justify-content: space-between;
   align-items: center;
   position: relative;
-}
-
-main {
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
-  margin-bottom: 3em;
 }
 
 nav {
@@ -56,6 +48,19 @@ a:active {
 
 a:hover {
     color: #f26100;
+}
+
+/* MAIN */
+
+
+main {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  margin-bottom: 3em;
 }
 
 .container {

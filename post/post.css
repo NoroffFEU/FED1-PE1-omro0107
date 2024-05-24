@@ -3,16 +3,7 @@ body {
   padding: 0;
 }
 
-h1 {
-  font-size: 3em;
-  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
-}
-.heading {
-  font-size: 2em;
-  display: flex;
-  justify-content: center;
-  padding-top: 4vw;
-}
+/* HEADER */
 
 header {
   display: flex;
@@ -30,11 +21,6 @@ header {
   max-width: 100px;
   max-height: 100px;
 }
-
-main {
-  padding: 20px;
-}
-
 
 a:link, 
 a:visited, 
@@ -62,6 +48,28 @@ ul {
 
 li {
   padding-right: 2em;
+}
+
+/* MAIN */
+
+main {
+  padding: 20px;
+}
+
+.fa-spinner {
+  font-size: 3vw;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'montserrat', 'open sans', 'veranda', sans-serif;
+}
+
+.heading {
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  padding-top: 4vw;
 }
 
 #post-container {
@@ -139,11 +147,8 @@ textarea {
   margin-bottom: 15px;
 }
 
-.fa-spinner {
-  font-size: 3vw;
-}
-
 /* FOOTER */
+
 footer {
   display: flex;
   flex-wrap: wrap;
