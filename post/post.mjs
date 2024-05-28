@@ -28,20 +28,15 @@ function updateUI() {
     registerBtn.style.display = 'none';
     logoutBtn.style.display = 'block';
     createNewPostBtn.style.display = 'block';
-    editPostBtn.style.display = 'block';
   } else {
     loginBtn.style.display = 'block';
     registerBtn.style.display = 'block';
     logoutBtn.style.display = 'none';
-    createNewPostBtn.style.display = 'none'; 
-    editPostBtn.style.display = 'none';
+    createNewPostBtn.style.display = 'none';
   }
 }
 
 document.getElementById('logout-link').addEventListener('click', handleLogout);
-document.getElementById('edit-post-btn').addEventListener('click', () => {
-  window.location.href = `../post/edit.html?id=${postId}`;
-});
 
 updateUI();
 
@@ -67,30 +62,77 @@ async function fetchPostData() {
 async function displayPost() {
   const postData = await fetchPostData();
 
-  const postTitle = document.getElementById('post-title');
-  const authorName = document.getElementById('author-name');
-  const publishDate = document.getElementById('publish-date');
-  const postImage = document.getElementById('post-image');
-  const postContent = document.getElementById('post-content');
+  const postContainer = document.getElementById('post-container');
 
+  const postWrapper = document.createElement('div');
+  postWrapper.classList.add('post-wrapper');
+
+  const postContent = document.createElement('div');
+  postContent.classList.add('post-content');
+
+  const postHeader = document.createElement('div');
+  postHeader.classList.add('post-header');
+
+  const postTitle = document.createElement('h1');
   postTitle.textContent = postData.title;
+
+  const postInfo = document.createElement('div');
+  postInfo.classList.add('post-info');
+
+  const authorName = document.createElement('span');
   authorName.textContent = postData.author.name;
+
+  const publishDate = document.createElement('span');
   publishDate.textContent = new Date(postData.created).toLocaleDateString();
+
+  postInfo.appendChild(authorName);
+  postInfo.appendChild(publishDate);
+
+  postContent.appendChild(postTitle);
+  postContent.appendChild(postInfo);
+
+  const postBlog = document.createElement('div');
+  postBlog.classList.add('post-blog');
+  postBlog.innerHTML = postData.body;
+
+  postContent.appendChild(postHeader);
+  postContent.appendChild(postBlog);
+
+  const postImage = document.createElement('img');
+  postImage.classList.add('postimg')
   if (postData.media && postData.media.url) {
     postImage.src = postData.media.url;
     postImage.alt = postData.media.alt;
   }
-  postContent.innerHTML = postData.body;
+
+  postWrapper.appendChild(postImage);
+  postWrapper.appendChild(postContent);
+
+  const editPostBtn = document.createElement('button');
+  editPostBtn.textContent = 'Edit Post';
+  editPostBtn.style.display = 'none';
+
+  const shareButton = document.createElement('button');
+  shareButton.textContent = 'Share';
+
+  postWrapper.appendChild(editPostBtn);
+  postWrapper.appendChild(shareButton);
+
+  postContainer.appendChild(postWrapper);
+
+  if (isLoggedIn()) {
+    editPostBtn.style.display = 'block';
+    editPostBtn.addEventListener('click', () => {
+      window.location.href = `../post/edit.html?id=${postId}`;
+    });
+  }
+
+  shareButton.addEventListener('click', () => {
+    const shareableUrl = `${window.location.origin}${window.location.pathname}?id=${postId}`;
+    navigator.clipboard.writeText(shareableUrl);
+    alert(`Post URL is copied to your clipboard!`);
+  });
 }
 
-const shareButton = document.getElementById('share-button');
-
-shareButton.addEventListener('click', () => {
-  const shareableUrl = `${window.location.origin}${window.location.pathname}?id=${postId}`;
-
-  navigator.clipboard.writeText(shareableUrl);
-
-  alert(`Post URL is copied to your clipboard!`);
-});
 
 displayPost();

@@ -72,8 +72,8 @@ h1 {
   padding-top: 4vw;
 }
 
-#post-container {
-  max-width: 800px;
+.post-wrapper {
+  max-width: 1000px;
   margin: 0 auto; 
   padding: 5vw;
 }
@@ -82,26 +82,26 @@ h1 {
   margin-bottom: 10px;
 }
 
-.post-info {
+.post-info span {
   font-size: 0.8rem;
   color: #888;
   margin-bottom: 15px;
+  padding-right: 20px;
 }
 
-#post-image {
+.postimg {
   width: 100%;
   object-fit: cover;
   padding: 2vw 0 3vw 0;
 }
 
-#post-content {
+.post-blog {
   line-height: 1.5;
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: regular;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  padding: 2vw 0;
 }
 
 #edit-post-form,
@@ -222,9 +222,5 @@ h3 {
   .social-media ul {
     padding: 0%;
   }
-
-}
-
-@media (min-width: 600px) and (max-width: 900px) {
 
 }
