@@ -57,9 +57,7 @@ form.addEventListener('submit', async (e) => {
     }
   } catch (error) {
      console.error(error);
-  }
-  
-  console.log(`New account created: ${name} ${email} ${password}`);
+}
 });
 
 function validateEmail(email) {

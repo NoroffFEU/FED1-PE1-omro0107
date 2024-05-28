@@ -25,10 +25,8 @@ form.addEventListener('submit', async (event) => {
 
     if (response.ok) {
       localStorage.setItem('accessToken', data.data.accessToken);
-      console.log('Logged in!');
       window.location.href = '../index.html';
     } else {
-      console.log('Login failed:', data.message || 'Unknown Error');
       errorMessage.textContent = data.message || 'Login failed. Please try again.';
     }
   } catch(error) {

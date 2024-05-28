@@ -8,13 +8,11 @@ if (!postId) {
 
 function isLoggedIn() {
   const token = localStorage.getItem('accessToken');
-  console.log('Access Token', token)
   return !!token;
 }
 
 function handleLogout() {
   localStorage.removeItem('accessToken');
-  console.log('Logged out.');
   window.location.href = '../account/login.html';
 }
 
@@ -25,13 +23,11 @@ function updateUI() {
   const createNewPostBtn = document.getElementById('create-new-post-btn');
 
   if (isLoggedIn()) {
-    console.log('User is logged in. Showing logout button.');
     loginBtn.style.display = 'none';
     registerBtn.style.display = 'none';
     createNewPostBtn.style.display = 'block';
     logoutBtn.style.display = 'block';
   } else {
-    console.log('User is not logged in. Showing login and register buttons')
     loginBtn.style.display = 'block';
     registerBtn.style.display = 'block';
     createNewPostBtn.style.display = 'none'; 
