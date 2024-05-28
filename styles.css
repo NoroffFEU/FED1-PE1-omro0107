@@ -83,7 +83,6 @@ h1 {
   font-weight: bold;
   color: #fff;
   text-align: center;
-
 }
 
 .view-post-btn:hover, .fa-solid.fa-chevron-left:hover, .fa-solid.fa-chevron-right:hover {
@@ -259,4 +258,119 @@ h3 {
 .social-media ul, .contact-info {
   display: flex;
   flex-direction: column;
+  padding: 0%;
+}
+
+/* Responsiveness */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+    padding: 5px;
+  }
+
+  .carousel-container {
+    margin: 2em auto;
+  }
+
+  .view-post-btn {
+    display: block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 1em;
+    padding-right: 6em;
+    padding-bottom: 1em;
+    padding-left: 6em;
+  }
+
+  .post-container {
+    flex-direction: column-reverse;
+  }
+
+  .blogpost {
+    flex: none;
+    width: 100%;
+  }
+
+  .blogpostimg {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  
+  .date-icon-container {
+    margin: 1em 0;
+  }
+
+  .post-thumbnails {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #prev-btn {
+    left: 5px;
+  }
+  
+  #next-btn {
+    right: 5px;
+  }
+
+  .post-image {
+  max-width: 100%;
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  .social-media ul {
+    padding: 0%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  h1 {
+    font-size: 1.5em;
+    padding: 5px;
+  }
+
+  .carousel-container {
+    margin: 2em auto;
+  }
+
+  .view-post-btn {
+    display: block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 1em;
+    padding-right: 6em;
+    padding-bottom: 1em;
+    padding-left: 6em;
+  }
+
+  .blogpost {
+    flex: 0 0 50%
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #prev-btn {
+    left: 5px;
+  }
+  
+  #next-btn {
+    right: 5px;
+  }
+  
+  .date-icon-container {
+    margin: 1em 0;
+  }
 }

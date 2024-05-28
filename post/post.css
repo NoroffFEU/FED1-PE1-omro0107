@@ -192,3 +192,39 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    display: block;
+    margin: 3vw auto;
+    padding-right: 5em;
+    padding-left: 5em;
+    font-size: 1em;
+  }
+
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    width: 90%;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  .social-media ul {
+    padding: 0%;
+  }
+
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+
+}
